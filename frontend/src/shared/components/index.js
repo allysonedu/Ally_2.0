@@ -1,9 +1,7 @@
-export * from './form/input'
+export * from './Layout'; //importação unica pois será a base da aplicação
 
-export * from './Layout'
+export * from './form/input';
 
-export * from './form/button'
+export * from './form/button';
 
-export * from './tooltip'
-
-export * from './form/select/Select'
+export * from './tooltip';

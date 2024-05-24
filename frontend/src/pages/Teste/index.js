@@ -1,9 +1,9 @@
 import { Container } from './styles';
 
-export const Content = () => {
+export const Test = () => {
   return (
     <Container>
-      <h1>Content</h1>
+      <h1>Test</h1>
     </Container>
   );
 };

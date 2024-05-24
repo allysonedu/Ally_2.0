@@ -1,15 +1,22 @@
-import { Aside } from '../Aside'
-import { Content } from '../Content'
+import { Aside } from '../Aside';
+import { Content } from '../Content';
+import { MainHeader } from '../MainHeader';
 
-import { GridLayout, Container } from './styles'
+import { GridLayout } from './styles';
 
 export const Layout = ({ children }) => {
   return (
-    <Container>
-      <GridLayout>
-        <Aside />
-        <Content>{children}</Content>
-      </GridLayout>
-    </Container>
-  )
-}
+    <GridLayout>
+      <Aside />
+      <MainHeader />
+      <Content>{children}</Content>
+    </GridLayout>
+  );
+};
+/**
+import { Aside } from '../Aside';         
+import { Content } from '../Content';
+import { MainHeader } from '../MainHeader';
+
+Só seram Ultilizado no Layout 
+*/

@@ -18,7 +18,8 @@ export default {
   warning_title: '#F2E205',
   warning_backgraund: '#F9FFD1',
 
-  error_title: '#c53',
+  error_title: '#c53030',
+  border_error: '#c53',
   error_background: '#fddede',
 
   // colors Aside
@@ -28,5 +29,5 @@ export default {
   color_bottom: 'rgba(0,0,0)',
   color_linear: 'rgba(134, 136, 144, 0.5)',
 
-  color_bottom_text: 'rgba(39,245,238,1)',
-}
+  color_bottom_text: 'rgba(39,245,238,0.8)',
+};

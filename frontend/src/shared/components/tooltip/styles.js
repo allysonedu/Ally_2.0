@@ -1,18 +1,17 @@
-import styles from 'styled-components'
+import styled from 'styled-components';
 
-export const Container = styles.div`
+export const Container = styled.div`
   position: relative;
- cursor: pointer;
+  cursor: pointer;
 
- span {
-  position: absolute;
-  bottom: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%);
-  border: 1px solid ${({ theme }) => theme.error_title};
+  span {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid ${({ theme }) => theme.error_title};
 
-
-   background: ${({ theme }) => theme.error_background};
+    background: ${({ theme }) => theme.error_background};
     color: ${({ theme }) => theme.error_title};
 
     width: 140px;
@@ -25,7 +24,7 @@ export const Container = styles.div`
     visibility: hidden;
     transition: opacity 0.4s;
 
-     &::before {
+    &::before {
       content: '';
       border-style: solid;
       border-color: ${({ theme }) => theme.error_title} transparent;
@@ -35,10 +34,10 @@ export const Container = styles.div`
       left: 50%;
       transform: translateX(-50%);
     }
- }
+  }
 
- &:hover span {
-      opacity: 1;
-      visibility: visible;
-    }
-`
+  &:hover span {
+    opacity: 1;
+    visibility: visible;
+  }
+`;

@@ -1,8 +1,7 @@
-/* eslint-disable no-undef */
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { Tooltip } from '../../tooltip'
-
+import { Tooltip } from '../../tooltip';
+// disagner de todos os Input da aplicação!
 export const Container = styled.div`
   margin: 10px;
   width: 450px;
@@ -20,29 +19,18 @@ export const Container = styled.div`
     margin-top: 8px;
   }
 
-  ${(props) =>
-    props.isErrored &&
-    css`
-      border-color: ${(propsTheme) => propsTheme.theme.error_title};
-    `}
-
-  ${(props) =>
+  ${props =>
     props.isFocused &&
     css`
       color: ${({ theme }) => theme.secondary};
       border-color: ${({ theme }) => theme.secondary};
     `}
 
-
-  ${(props) =>
+  ${props =>
     props.isFilled &&
     css`
       color: ${({ theme }) => theme.secondary};
     `}
-
-     svg {
-    margin-right: 16px;
-  }
 
   input {
     background: transparent;
@@ -51,12 +39,10 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.text};
     width: 100%;
   }
-
   > label {
     color: ${({ theme }) => theme.text};
     margin-bottom: 10px;
   }
-
   > input::placeholder {
     color: #f0ffff94;
   }
@@ -64,15 +50,28 @@ export const Container = styled.div`
   svg {
     margin-right: 16px;
   }
-`
+`;
 
 export const Error = styled(Tooltip)`
+  // Importação do tooltip aqui!
+  //Disagner do Icon de error
   margin-left: 16px;
   height: 20px;
 
   svg {
     margin: 0;
   }
-`
+`;
 
-
+/**
+ * background: ${({ theme }) => theme.primary_light};
+  border-radius: 10px;
+  border: 2px solid ${({ theme }) => theme.secondary};
+  padding: 16px;
+  width: 450px;
+  font-weight: bold;
+  margin: 5px;
+  color: black;
+  display: flex;
+  align-items: center;
+ */
