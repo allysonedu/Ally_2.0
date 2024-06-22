@@ -1,9 +1,9 @@
 import { Container } from './styles';
 
-export const Test = () => {
+export const Assistids = () => {
   return (
     <Container>
-      <h1>Test</h1>
+      <h1>Cadastre o Assistido aqui!</h1>
     </Container>
   );
 };

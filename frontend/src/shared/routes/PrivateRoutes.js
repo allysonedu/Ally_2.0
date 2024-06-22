@@ -7,5 +7,5 @@ export const PrivateRoutes = () => {
 
   console.log(user);
 
-  return user ? <Outlet /> : <Navigate to="/signIn" />;
+  return user ? <Outlet /> : <Navigate to="/" />;
 };

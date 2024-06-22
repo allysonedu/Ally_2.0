@@ -1,27 +1,22 @@
-const jwt = require('jsonwebtoken')
-const AppError = require('../errors/AppError')
-const { request, response } = require('express')
-const { errors } = require('celebrate')
+const jwt = require('jsonwebtoken');
+const AppError = require('../errors/AppError');
 
 module.exports = async (request, response, next) => {
-  const { authorization } = request.headers
+  try {
+    const authHeader = request.headers.authorization;
 
-  if (!authorization) {
-    return response.status(401).json({error: 'token not provided'})
-  }
-}
+    if (!authHeader) throw new AppError('Token not provided');
 
-const [, token] = authorization.split('')
+    const [, token] = authHeader.split(' ');
 
-try {
-  const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     request.user = {
       id: decoded.id,
-      name: decoded.name,
-    }
+    };
 
-    return next()
-  } catch (error) {
-    throw new AppError(error.message, 401)
+    next();
+  } catch (err) {
+    return response.status(401).json({ error: err.message });
   }
+};

@@ -18,7 +18,7 @@ const port = 3333;
 
 app.use(express.json());
 
-app.use(cors({ origin: 'https://localhost:3000' }));
+app.use(cors({ origin: '*' }));
 
 app.use(routes);
 

@@ -5,14 +5,14 @@ const AppError = require('../../../shared/errors/AppError');
 const { compare } = require('../../../shared/utils/encrypt');
 
 class SessionsService {
-  constructor(userRepository) {
-    this.userRepository = userRepository;
+  constructor(usersRepository) {
+    this.usersRepository = usersRepository;
   }
   async execute(payload) {
     const { email, password } = payload;
 
-    const user = await this.userRepository.checkUserEmail(email);
-    if (!user) throw new AppError('user not faund');
+    const user = await this.usersRepository.checkUserEmail(email);
+    if (!user) throw new AppError('user not found');
 
     await compare(password, user.password);
 

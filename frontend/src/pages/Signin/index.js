@@ -4,13 +4,13 @@ import { useRef, useCallback } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+import * as Yup from 'yup';
+
 import { Form } from '@unform/web';
 
 import { FaUserAstronaut } from 'react-icons/fa';
 
 import { GiPadlock } from 'react-icons/gi';
-
-import * as Yup from 'yup';
 
 import getValidationErrors from '../../shared/utils/getValidationErrors'; // Lançar o error na tela
 
@@ -88,7 +88,7 @@ export const SignIn = () => {
 
             <Button type="submit"> Entrar </Button>
           </Form>
-          <a href="/"> Esqueci minha senha</a>
+          <a href="/forgot-password"> Esqueci minha senha</a>
         </div>
       </Content>
     </Container>

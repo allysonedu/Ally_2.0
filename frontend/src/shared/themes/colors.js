@@ -12,7 +12,7 @@ export default {
   success_title: '#2e656a',
   success_background: '#e6fffa',
 
-  info_title: '#3172b7',
+  info_title: 'rgb(198, 216, 255)',
   info_background: '#ebf8ff',
 
   warning_title: '#F2E205',
@@ -22,12 +22,19 @@ export default {
   border_error: '#c53',
   error_background: '#fddede',
 
-  // colors Aside
-  primary_Aside: 'rgba(255, 255, 255)',
-  text_Aside: 'rgba(0,0,0)',
-  text_Aside_menu: 'rgba(134, 136, 144)',
-  color_bottom: 'rgba(0,0,0)',
-  color_linear: 'rgba(134, 136, 144, 0.5)',
+  // colors sun
 
-  color_bottom_text: 'rgba(39,245,238,0.8)',
+  body_color: 'rgb(228, 233, 247)',
+  sidebar_color: 'rgb(255, 255, 255)',
+  profession: '#fff',
+
+  primary_color: 'rgba(39,245,238,0.8)',
+  primay_color_light: 'rgb(246, 245, 255)',
+
+  toggle_color: 'rgb(221, 221, 221)',
+  text_color: 'rgb(112, 112, 112)',
+
+  color_name: 'rgb(112, 112, 112)',
+
+  home_color: 'rgb(228, 233, 250)',
 };

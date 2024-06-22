@@ -9,8 +9,8 @@ export const Container = styled.button`
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 2px;
-  color: ${({ theme }) => theme.three};
-  background: ${({ theme }) => theme.color_bottom_text};
+  color: ${({ theme }) => theme.primay_color_light};
+  background: ${({ theme }) => theme.primary_color};
   cursor: pointer;
   box-shadow: 0px 10px 40px -12px ${({ theme }) => theme.secondary};
   transition: transform 0.8s blue;

@@ -11,4 +11,23 @@ const acesso = async ({ email, password }) => {
   }
 };
 
-export { acesso };
+const forgotPassword = async email => {
+  try {
+    const response = await api.post('/forgot', { email });
+    return response.data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+const resetPassword = async ({ token, password }) => {
+  try {
+    const response = await api.patch(`/reset-password/${token}`, { password });
+
+    return response.data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+export { acesso, forgotPassword, resetPassword };

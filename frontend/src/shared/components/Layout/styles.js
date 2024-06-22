@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GridLayout = styled.div`
-  display: grid;
+  display: flex;
   grid-template-columns: 250px auto;
   grid-template-rows: 70px auto;
 

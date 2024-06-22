@@ -24,7 +24,11 @@ button {
   cursor: pointer;
 }
 
-ul {
+ul, li {
   list-style: none;
+}
+
+a {
+   text-decoration: none;
 }
 `;

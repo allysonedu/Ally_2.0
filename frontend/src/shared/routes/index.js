@@ -2,7 +2,13 @@
 
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { SignIn, Home, Test } from '../../pages';
+import {
+  SignIn,
+  Home,
+  Assistids,
+  ForgotPassword,
+  ResetPassword,
+} from '../../pages';
 
 import { PrivateRoutes } from './PrivateRoutes';
 
@@ -13,8 +19,9 @@ export const AppRoutes = () => {
   // Só tera acesso a home/PrivateRoutes se tiver cadastrado!
   return (
     <Routes>
-      <Route path="/" element={<Test />} />
-      <Route path="/signIn" element={<SignIn />} />
+      <Route path="/" element={<SignIn />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
 
       <Route element={<PrivateRoutes />}>
         <Route
@@ -22,6 +29,14 @@ export const AppRoutes = () => {
           element={
             <Layout>
               <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/assistids"
+          element={
+            <Layout>
+              <Assistids />
             </Layout>
           }
         />

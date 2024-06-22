@@ -2,4 +2,8 @@ export * from './Signin';
 
 export * from './Home';
 
-export * from './Teste';
+export * from './Assistids';
+
+export * from './ForgotPassword';
+
+export * from './ResetPassword';

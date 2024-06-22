@@ -25,12 +25,14 @@ const AuthProvider = ({ children }) => {
     const { token, user } = response; // token é sempre usado quando vamos fazer uma request com o banco de dados!
 
     localStorage.setItem('@ally', JSON.stringify({ token, user }));
+
     setData(user);
   }, []); // podemos estar compartilhando informação do usuario por toda aplicação!
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@ally');
     setData(undefined);
+    console.log('signOut');
   }, []); // signOut é indentificar se o usuario saiu da aplicação!
 
   // compartilhamento de função de login!
