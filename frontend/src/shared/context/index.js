@@ -1,5 +1,9 @@
 import { AuthProvider } from './AuthContext';
 
+import { ToastProvider } from './ToastContext';
+
 export const AppProvider = ({ children }) => (
-  <AuthProvider>{children}</AuthProvider>
+  <AuthProvider>
+    <ToastProvider>{children}</ToastProvider>
+  </AuthProvider>
 );

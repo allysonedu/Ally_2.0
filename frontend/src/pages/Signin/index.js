@@ -1,6 +1,6 @@
 import { Container, Content } from './styles';
 
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -14,14 +14,22 @@ import { GiPadlock } from 'react-icons/gi';
 
 import getValidationErrors from '../../shared/utils/getValidationErrors'; // Lançar o error na tela
 
-import { Input, Button } from '../../shared/components';
+import { useToast } from '../../shared/context/ToastContext';
+
+import { Input, Button, LoaderAlly } from '../../shared/components';
 import { useAuth } from '../../shared/context/AuthContext';
+
+//import { LoaderAlly } from '../../shared/components';
 
 export const SignIn = () => {
   const formRef = useRef(null);
   const navigate = useNavigate(); // navegação do usuario cadastrado para Home!
-
+  const { addToast } = useToast();
   const { signIn } = useAuth(); // importação useAuth/hook do AuthContext.js!
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 3000);
+  }, [isLoading]);
 
   // Validar o formulário, e ajustar o tipo de erro que quero que apresente!
   const handleSubmit = useCallback(
@@ -46,6 +54,11 @@ export const SignIn = () => {
 
         await signIn({ email, password });
 
+        addToast({
+          type: 'success',
+          title: 'Usuário logado com sucesso!',
+        });
+
         navigate('/home');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
@@ -54,9 +67,14 @@ export const SignIn = () => {
           formRef.current.setErrors(error);
           return;
         }
+        addToast({
+          type: 'error',
+          title: 'Erro no login!',
+          description: 'Erro ao logar, verificar suas credencias',
+        });
       }
     },
-    [navigate, signIn]
+    [navigate, signIn, addToast]
   );
 
   return (
@@ -86,7 +104,11 @@ export const SignIn = () => {
               />
             </div>
 
-            <Button type="submit"> Entrar </Button>
+            {isLoading ? (
+              <LoaderAlly />
+            ) : (
+              <Button type="submit"> Entrar </Button>
+            )}
           </Form>
           <a href="/forgot-password"> Esqueci minha senha</a>
         </div>

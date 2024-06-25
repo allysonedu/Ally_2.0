@@ -16,7 +16,7 @@ class ForgotPasswordService {
     const user = await this.usersRepository.checkUserEmail(email);
 
     if (!user) {
-      throw new AppError('user not found');
+      throw new AppError('User not found');
     }
     const token = parseInt(crypto.randomBytes(3).toString('hex'), 16)
       .toString()

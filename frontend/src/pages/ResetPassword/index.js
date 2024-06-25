@@ -1,6 +1,6 @@
 import { Container, Content } from './styles';
 
-import { useRef, useCallback, useState } from 'react';
+import { useRef, useCallback, useState, useEffect } from 'react';
 
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -14,14 +14,22 @@ import { GiPadlock } from 'react-icons/gi';
 
 import getValidationErrors from '../../shared/utils/getValidationErrors'; // Lançar o error na tela
 
+import { useToast } from '../../shared/context/ToastContext';
+
 import { resetPassword } from '../../api/allyApi';
 
 import { Input, Button, LoaderAlly } from '../../shared/components';
 
+import 'react-perfect-scrollbar/dist/css/styles.css';
+
 export const ResetPassword = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
+  const { addToast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 3000);
+  }, [isLoading]);
 
   // Validar o formulário, e ajustar o tipo de erro que quero que apresente!
   const handleSubmit = useCallback(
@@ -40,9 +48,22 @@ export const ResetPassword = () => {
 
         await schema.validate(data, { abortEarly: false });
 
-        const { password, /*confirmPassword,*/ token } = data;
+        const { password, confirmPassword, token } = data;
 
+        if (password !== confirmPassword) {
+          addToast({
+            type: 'error',
+            title: 'Senhas não conferem',
+            description: 'Por favor verifique suas senhas',
+          });
+          return;
+        }
         await resetPassword({ token, password });
+        addToast({
+          type: 'success',
+          title: 'Senha Alterada',
+          description: 'Senha Alterada com Sucesso!',
+        });
 
         setIsLoading(false);
 
@@ -54,9 +75,14 @@ export const ResetPassword = () => {
           formRef.current.setErrors(error);
           return;
         }
+        addToast({
+          type: 'error',
+          title: 'Erro no login',
+          description: 'Erro ao logar, verificar suas credenciais',
+        });
       }
     },
-    [navigate]
+    [navigate, addToast]
   );
 
   return (
