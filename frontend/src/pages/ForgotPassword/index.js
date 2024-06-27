@@ -2,6 +2,8 @@ import { Container, Content } from './styles';
 
 import { useRef, useCallback, useState, useEffect } from 'react';
 
+//useRef no React é utilizada para acessar diretamente um elemento do DOM ou um valor mutável de um componente funcional. Ela retorna um objeto ref que pode ser utilizado para armazenar referências a elementos HTML ou a valores que persistem entre as renderizações, sem acionar uma nova renderização quando são modificados.
+
 import { useNavigate, Link } from 'react-router-dom';
 
 import * as Yup from 'yup';
@@ -22,11 +24,11 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 export const ForgotPassword = () => {
   const formRef = useRef(null);
-  const navigate = useNavigate();
-  const { addToast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate(); // navegar para outra pagina!
+  const { addToast } = useToast(); // importão dos Toast de importação!
+  const [isLoading, setIsLoading] = useState(false); // funcão de loading: carregar pagina!
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 3000);
+    setTimeout(() => setIsLoading(false), 3000); // temporizador do loading
   }, [isLoading]);
 
   // Validar o formulário, e ajustar o tipo de erro que quero que apresente!
@@ -57,7 +59,7 @@ export const ForgotPassword = () => {
         navigate('/reset-password');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
-          const error = getValidationErrors(err);
+          const error = getValidationErrors(err); // validação do erro!
 
           formRef.current.setErrors(error);
           return;
@@ -81,15 +83,12 @@ export const ForgotPassword = () => {
           <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Esqueceu sua senha ?</h1>
 
-            <div className="textfield">
-              <label htmlFor="usuario">Email</label>
-              <Input
-                name="email"
-                type="email"
-                placeholder="Email"
-                icon={FaUserAstronaut}
-              />
-            </div>
+            <Input
+              name="email"
+              type="email"
+              placeholder="Email"
+              icon={FaUserAstronaut}
+            />
 
             {isLoading ? (
               <LoaderAlly />

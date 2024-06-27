@@ -7,7 +7,7 @@ class UsersRepository {
 
   async createUser(payload) {
     return connection.transaction(
-      async trx => trx('users').insert(payload).returning('*') // para tar criando o usuario
+      async trx => trx('users').insert(payload).returning('*') // para estar criando o usuario
     );
   }
 

@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components';
 import { Tooltip } from '../../tooltip';
 // disagner de todos os Input da aplicação!
 export const Container = styled.div`
-  margin: 10px;
-  width: 450px;
+  width: 100%;
   border-radius: 10px;
   padding: 16px;
 

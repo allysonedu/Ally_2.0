@@ -20,8 +20,6 @@ import { resetPassword } from '../../api/allyApi';
 
 import { Input, Button, LoaderAlly } from '../../shared/components';
 
-import 'react-perfect-scrollbar/dist/css/styles.css';
-
 export const ResetPassword = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
@@ -93,30 +91,28 @@ export const ResetPassword = () => {
           <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Resetar minha senha</h1>
 
-            <div className="textfield">
-              <Input
-                name="token"
-                type="text"
-                placeholder="Digite seu token"
-                icon={FiHash}
-              />
+            <Input
+              name="token"
+              type="text"
+              placeholder="Digite seu token"
+              icon={FiHash}
+            />
 
-              <br />
+            <br />
 
-              <Input
-                name="password"
-                icon={GiPadlock}
-                type="password"
-                placeholder="Digite sua nova senha"
-              />
+            <Input
+              name="password"
+              icon={GiPadlock}
+              type="password"
+              placeholder="Digite sua nova senha"
+            />
 
-              <Input
-                name="confirmPassword"
-                icon={GiPadlock}
-                type="password"
-                placeholder="Confirme sua nova senha"
-              />
-            </div>
+            <Input
+              name="confirmPassword"
+              icon={GiPadlock}
+              type="password"
+              placeholder="Confirme sua nova senha"
+            />
 
             {isLoading ? (
               <LoaderAlly />

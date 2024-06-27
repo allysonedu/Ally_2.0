@@ -22,7 +22,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.color_name};
   }
   img {
-    width: 550px;
+    width: 50%;
     display: flex;
     position: relative;
     left: 50%;
@@ -40,6 +40,7 @@ export const Container = styled.div`
     position: relative;
     right: 260%;
     top: 50%;
+    width: 130%;
 
     a {
       color: ${({ theme }) => theme.text_color};

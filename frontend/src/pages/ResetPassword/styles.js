@@ -39,10 +39,6 @@ export const Content = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    .textfield > label {
-      color: ${({ theme }) => theme.text};
-    }
   }
 
   form {
@@ -60,6 +56,7 @@ export const Content = styled.div`
       color: ${({ theme }) => theme.secondary};
       font-weight: 800;
       margin: 0;
+      margin-bottom: 15px;
     }
 
     > a {
@@ -71,6 +68,9 @@ export const Content = styled.div`
       &:hover {
         transform: scale(1.02);
       }
+    }
+    > button {
+      margin: 25px;
     }
   }
 `;

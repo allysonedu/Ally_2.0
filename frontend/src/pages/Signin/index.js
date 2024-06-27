@@ -85,24 +85,19 @@ export const SignIn = () => {
           <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Seu Login</h1>
 
-            <div className="textfield">
-              <label htmlFor="usuario">Usuário</label>
-              <Input
-                name="email"
-                type="email"
-                placeholder="Usuário"
-                icon={FaUserAstronaut}
-              />
-            </div>
-            <div className="textfield">
-              <label htmlFor="senha">Senha</label>
-              <Input
-                name="password"
-                type="password"
-                placeholder="Senha"
-                icon={GiPadlock}
-              />
-            </div>
+            <Input
+              name="email"
+              type="email"
+              placeholder="Usuário"
+              icon={FaUserAstronaut}
+            />
+
+            <Input
+              name="password"
+              type="password"
+              placeholder="Senha"
+              icon={GiPadlock}
+            />
 
             {isLoading ? (
               <LoaderAlly />

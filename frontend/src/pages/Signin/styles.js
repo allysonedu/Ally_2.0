@@ -39,10 +39,6 @@ export const Content = styled.div`
         transform: scale(1.02);
       }
     }
-
-    .textfield > label {
-      color: ${({ theme }) => theme.text};
-    }
   }
 
   form {
@@ -55,11 +51,17 @@ export const Content = styled.div`
     background: ${({ theme }) => theme.boxlogin};
     border-radius: 20px;
     box-shadow: 0px 10px 40px;
+    margin: 10px;
 
     h1 {
       color: ${({ theme }) => theme.secondary};
       font-weight: 800;
       margin: 0;
+      margin-bottom: 15px;
+    }
+
+    > button {
+      margin: 25px;
     }
   }
 `;

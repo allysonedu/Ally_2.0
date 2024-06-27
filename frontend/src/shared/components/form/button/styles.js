@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.button`
   width: 100%;
   padding: 16px 0px;
-  margin: 25px;
+  //margin: 25px;
   border: none;
   border-radius: 8px;
   text-transform: uppercase;

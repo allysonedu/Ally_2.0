@@ -8,13 +8,12 @@ export const Container = styled.div`
   border-radius: 25px;
   transition: all 0.5s ease;
   display: flex;
-
-  h1 {
+  /**  h1 {
     position: absolute;
     right: 59%;
     padding-top: 10%;
     border-radius: 25px;
     color: ${({ theme }) => theme.text_color};
     transition: all 0.5s ease;
-  }
+  }*/
 `;

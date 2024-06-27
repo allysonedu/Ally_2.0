@@ -5,12 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { useCallback, useRef } from 'react';
 import * as Yup from 'yup';
 import getValidationErrors from '../../shared/utils/getValidationErrors';
-import { useToast } from '../../shared/context/ToastContext';
 
 export const Home = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
-  const { addToast } = useToast();
 
   const handleSubmit = useCallback(
     async data => {
@@ -18,10 +16,10 @@ export const Home = () => {
         formRef.current.setErrors({});
         console.log(data);
 
-        addToast({
-          type: 'success',
-          title: 'Usuário logado com sucesso!',
-        });
+        // addToast({
+        // type: 'success',
+        //  title: 'Usuário logado com sucesso!',
+        // });
 
         navigate('/assistids');
       } catch (err) {
@@ -33,7 +31,7 @@ export const Home = () => {
         }
       }
     },
-    [navigate, addToast]
+    [navigate]
   );
   return (
     <Container>
